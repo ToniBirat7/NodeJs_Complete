@@ -2,12 +2,12 @@ const EventEmitter = require("node:events");
 
 const emitter = new EventEmitter();
 
-emitter.on("order-pizza", (data) => {
-  console.log("Pizza is Ordered", data);
+emitter.on("order-pizza", (toppings, size) => {
+  console.log(`We are ordering pizza with ${toppings} and ${size}`);
 });
 
-emitter.on("order-pizza", (size, topping) => {
-  console.log(`We are baking a pizza of ${size} with the ${topping} over`);
+emitter.on("order-pizza", (size) => {
+  console.log(`The size of the pizza ${size}`);
 });
 
-emitter.emit("order-pizza", "3 cm", "Tomato");
+emitter.emit("order-pizza", "Tomato", "2 Cm");
